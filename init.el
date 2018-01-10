@@ -166,6 +166,11 @@
 (when (maybe-require-package 'uptimes)
   (add-hook 'after-init-hook (lambda () (require 'uptimes))))
 
+;;----------------------------------------------------------------------------
+;; H7 : Mes fichiers.el
+;;----------------------------------------------------------------------------
+
+(require 'init-me-tab)
 
 (provide 'init)
 
