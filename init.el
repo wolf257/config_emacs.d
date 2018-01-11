@@ -170,7 +170,7 @@
 ;; H7 : Mes fichiers.el
 ;;----------------------------------------------------------------------------
 
-(require 'init-me-tab)
+(require 'init-h7-settings)
 
 (provide 'init)
 
