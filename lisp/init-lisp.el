@@ -4,7 +4,7 @@
 (add-hook 'emacs-lisp-mode-hook (lambda () (setq mode-name "ELisp")))
 
 (setq-default initial-scratch-message
-              (concat ";; Happy hacking, " user-login-name " - Emacs ♥ you!\n\n"))
+              (concat ";; Welcome my dear " user-login-name ". Always remember : You are loved, and Emacs ♥ you!\n\n"))
 
 
 
