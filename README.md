@@ -24,6 +24,8 @@ git clone https://github.com/wolf257/emacs.d.git ~/.emacs.d
 
 If you plan to customize things more extensively, just fork the repo and hack it away !
 
+(All my customizations are in lisp/init-0-settings.el and custom.el)
+
 ## Similar configs
 
 You might also want to check out `emacs-starter-kit` and `prelude`.
