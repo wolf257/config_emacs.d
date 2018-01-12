@@ -88,4 +88,23 @@
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
+
+;; Kill, yank
+;;; c for copy
+(global-set-key (kbd "M-c") nil) ;; Remove the old keybinding capitalize-word
+(global-set-key (kbd "M-c M-c l") 'whole-line-or-region-kill-ring-save)
+(global-set-key (kbd "M-c M-c s") 'kill-ring-save)
+;;; k for kill|cut
+(global-set-key (kbd "M-c k l") 'kill-line)
+(global-set-key (kbd "M-c k s") 'kill-region)
+;;; y for yank
+(global-set-key (kbd "M-c M-v") 'yank)
+
+
+;;(global-set-key (kbd "M-c .") '...)
+;;(global-set-key (kbd "M-c .") '...)
+;;(global-set-key (kbd "M-c .") '...)
+;;(global-set-key (kbd "M-c .") '...)
+
+
 (provide 'init-h7-settings)
