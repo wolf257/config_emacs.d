@@ -107,4 +107,4 @@
 ;;(global-set-key (kbd "M-c .") '...)
 
 
-(provide 'init-h7-settings)
+(provide 'init-0-settings)
