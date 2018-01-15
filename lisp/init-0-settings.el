@@ -17,12 +17,12 @@
 ;; PACKAGE: golden-ratio                         ;;
 ;; GROUP: Environment -> Windows -> Golden Ratio ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'golden-ratio)
+(require-package 'golden-ratio)
 
-(add-to-list 'golden-ratio-exclude-modes "ediff-mode")
-(add-to-list 'golden-ratio-exclude-modes "helm-mode")
-(add-to-list 'golden-ratio-exclude-modes "dired-mode")
-(add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
+;;(add-to-list 'golden-ratio-exclude-modes "ediff-mode")
+;;(add-to-list 'golden-ratio-exclude-modes "helm-mode")
+;;(add-to-list 'golden-ratio-exclude-modes "dired-mode")
+;;(add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
 
 (defun pl/helm-alive-p ()
   (if (boundp 'helm-alive-p)
@@ -30,6 +30,8 @@
 
 ;; do not enable golden-raio in thses modes
 (setq golden-ratio-exclude-modes '("ediff-mode"
+                                   "helm-mode"
+                                   "dired-mode"
                                    "gud-mode"
                                    "gdb-locals-mode"
                                    "gdb-registers-mode"
