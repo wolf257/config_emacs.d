@@ -78,6 +78,13 @@
 
 (setq reftex-plug-into-AUCTeX t) ; Make RefTeX interact with AUCTeX,
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; yasnippet                          ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require-package 'yasnippet)
+(require-package 'yasnippet-snippets)
+
+(yas-global-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Keybindings                                   ;;
