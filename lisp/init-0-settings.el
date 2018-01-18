@@ -82,9 +82,11 @@
 ;; yasnippet                          ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require-package 'yasnippet)
-(require-package 'yasnippet-snippets)
+;;(require-package 'yasnippet-snippets)
 
-(setq yas-snippet-dirs "~/.emacs.d/snippets") ;; personal snippets
+(setq yas-snippet-dirs '("~/.emacs.d/mysnippets" ;; dossier perso
+                         ))
+
 (yas-global-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
