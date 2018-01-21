@@ -28,6 +28,11 @@
 (setq org-agenda-files
       (find-lisp-find-files "~/mes_docs/emacs/organisation/" "\.org$"))
 
+;;; Always want to have my refile file at hand
+(global-set-key (kbd "C-c o")
+                (lambda () (interactive) (find-file "~/mes_docs/emacs/refile.org")))
+
+
 
 ;;; Capturing
 

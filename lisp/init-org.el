@@ -115,8 +115,10 @@ typical word processor."
 
 (setq org-refile-use-cache nil)
 
-;; Targets include this file and any file contributing to the agenda - up to 5 levels deep
-(setq org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
+;; Targets include this file (if nil uncomment) and any file contributing to the agenda
+;;; - up to 5 levels deep
+;; (setq org-refile-targets '((nil :maxlevel . 5) (org-agenda-files :maxlevel . 5)))
+(setq org-refile-targets '((org-agenda-files :maxlevel . 6)))
 
 (after-load 'org-agenda
   (add-to-list 'org-agenda-after-show-hook 'org-show-entry))
@@ -145,7 +147,14 @@ typical word processor."
 
 ;; Targets start with the file name - allows creating level 1 tasks
 ;;(setq org-refile-use-outline-path (quote file))
-(setq org-refile-use-outline-path t)
+
+;; Pour pouvoir les refile dans un autre fichier
+(setq org-refile-use-outline-path 'file)
+;;(setq org-refile-use-outline-path t)
+
+;; tell Org that you don’t want to complete in steps;
+;; you want Org to generate all of the possible completions
+;; and present them at once
 (setq org-outline-path-complete-in-steps nil)
 
 ;; Allow refile to create parent tasks with confirmation
