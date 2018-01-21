@@ -30,9 +30,13 @@
 
 ;;; Always want to have my refile file at hand
 (global-set-key (kbd "C-c o")
-                (lambda () (interactive) (find-file "~/mes_docs/emacs/refile.org")))
+                (lambda () (interactive) (find-file "~/mes_docs/emacs/organisation/refile.org")))
 
-
+;;(setq org-agenda-start-on-weekday 1) ;; deja defini dans init-org.el
+(setq org-agenda-time-grid
+      '((daily today require-timed)
+        ;;"----------------"
+        (800 1200 1600 2000)))
 
 ;;; Capturing
 
