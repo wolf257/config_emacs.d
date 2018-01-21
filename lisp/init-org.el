@@ -4,9 +4,6 @@
 
 (maybe-require-package 'org-cliplink)
 
-(define-key global-map (kbd "C-c l") 'org-store-link)
-(define-key global-map (kbd "C-c a") 'org-agenda)
-
 ;; Various preferences
 (setq org-log-done t
       org-edit-timestamp-down-means-later t
@@ -100,7 +97,6 @@ typical word processor."
 
 ;;; Capturing
 
-(global-set-key (kbd "C-c c") 'org-capture)
 
 ;;; VOIR DANS init-0-org
 

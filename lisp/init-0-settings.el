@@ -90,13 +90,54 @@
 (yas-global-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; RACCOURCIS DOSSIERS                           ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; Accessible par C-x r j
+
+(global-set-key (kbd "C-x r j") 'jump-to-register) ;; Remove the old keybinding
+;;(global-set-key (kbd "M-c k r") 'jump-to-register) ; was nothing before
+
+(defvar my/refile-map (make-sparse-keymap))
+
+(defmacro my/defshortcut (key file)
+  `(progn
+     (set-register ,key (cons 'file ,file))
+     (define-key my/refile-map
+       (char-to-string ,key)
+       (lambda (prefix)
+         (interactive "p")
+         (let ((org-refile-targets '(((,file) :maxlevel . 6)))
+               (current-prefix-arg (or current-prefix-arg '(4))))
+           (call-interactively 'org-refile))))))
+
+(define-key my/refile-map "," 'my/org-refile-to-previous-in-file)
+
+(my/defshortcut ?c "~/Dropbox/dropbox_cs")
+(my/defshortcut ?w "~/mes_docs/mes_Ecrits")
+(my/defshortcut ?e "~/mes_docs/emacs")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; create folder if missing
+
+;; Automatically creating missing parent directories when visiting a new file.
+(defun my-create-non-existent-directory ()
+  (let ((parent-directory (file-name-directory buffer-file-name)))
+    (when (and (not (file-exists-p parent-directory))
+               (y-or-n-p (format "Directory `%s' does not exist! Create it?" parent-directory)))
+      (make-directory parent-directory t))))
+(add-to-list 'find-file-not-found-functions #'my-create-non-existent-directory)
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Keybindings                                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; easy keys to split window. Key based on ErgoEmacs keybinding
-(global-set-key (kbd "M-3") 'delete-other-windows) ; expand current pane
+(global-set-key (kbd "M-2") 'split-window-right) ; split pane top/bottom
 (global-set-key (kbd "M-4") 'split-window-below) ; split pane top/bottom
-(global-set-key (kbd "M-2") 'delete-window) ; close current pane
+(global-set-key (kbd "M-1") 'delete-other-windows) ; expand current pane
+(global-set-key (kbd "M-3") 'delete-window) ; close current pane
 
 ;; Jump to a definition in the current file. (This is awesome.)
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
