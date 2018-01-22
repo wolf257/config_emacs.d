@@ -148,6 +148,28 @@
  auto-save-interval 10 ; number of keystrokes between auto-saves (default: 300)
  )
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GROUP: Files -> Recentf            ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'recentf)
+
+(add-hook 'after-init-hook 'recentf-mode)
+
+(setq
+ recentf-max-menu-items 30
+ recentf-max-saved-items 100
+ recentf-exclude '("/tmp/" "/ssh:" "/lisp/")
+ )
+
+(global-set-key (kbd "C-x C-r") 'ido-recentf-open) ;; was find-file-read-only
+
+(defun ido-recentf-open ()
+  "Use ido-completing-read to find-file a recent file"
+  (interactive)
+  (if (find-file (ido-completing-read "Find recent file: " recentf-list))
+      (message "Opening file...")
+    (message "Aborting")))
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Keybindings                                   ;;
