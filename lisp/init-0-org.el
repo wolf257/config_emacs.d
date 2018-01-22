@@ -45,7 +45,7 @@
 
         ("j" "Journal Entry"
          entry (file+datetree get-journal-file-today)
-         "* %?"
+         "* %? :%^G"
          :empty-lines 1)
 
         ("t" "todo" entry (file "~/mes_docs/emacs/refile.org")
@@ -78,7 +78,35 @@
 
 ;;('fmakunbound 'journal-file-today)
 
+;; Tags with fast selection keys
+(setq org-tag-alist (quote (
+                            ;; les elements entres (start|end)group sont exclusifs
+                            ;;(:startgroup)
+                            ;; ("@office" . ?o)
+                            ;; ("@home" . ?H)
+                            (:endgroup)
+                            ("family_mine" . ?f)
+                            ("introspection" . ?i)
+                            ("health" . ?h)
+                            ("ecriture" . ?e)
+                            ("book_3_Massalik" . ?m)
+                            ("project" . ?p)
+                            ("correspondance" . ?c)
+                            ("reve" . ?r)
+                            ("society" . ?s)
+                            )))
 
+;; Tags completion from org-capture window
+(add-hook 'org-capture-mode-hook
+          (lambda ()
+            (setq-local org-tag-alist (org-global-tags-completion-table))))
+
+
+;; Use IDO for both buffer and file completion and ido-everywhere to t
+;; (setq org-completion-use-ido t)
+;; (setq ido-everywhere t)
+;; (setq ido-max-directory-size 100000)
+;; (ido-mode (quote both))
 
 
 (provide 'init-0-org)
