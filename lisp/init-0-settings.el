@@ -127,6 +127,26 @@
       (make-directory parent-directory t))))
 (add-to-list 'find-file-not-found-functions #'my-create-non-existent-directory)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; GROUP: Files -> Back up
+(defvar backup-directory "~/.emacs.d/backups")
+(if (not (file-exists-p backup-directory))
+    (make-directory backup-directory t))
+
+(setq
+ make-backup-files t        ; backup a file the first time it is saved
+ backup-directory-alist `((".*" . backup-directory)) ; save backup files in ~/.emacs.d/backups
+ backup-by-copying t     ; copy the current file into backup directory
+ version-control t   ; version numbers for backup files
+ ;;
+ delete-old-versions t   ; delete unnecessary versions
+ kept-old-versions 10    ; oldest versions to keep when a new numbered backup is made (default: 2)
+ kept-new-versions 10 ; newest versions to keep when a new numbered backup is made (default: 2)
+ ;;
+ auto-save-default t ; auto-save every buffer that visits a file
+ auto-save-timeout 10 ; number of seconds idle time before auto-save (default: 30)
+ auto-save-interval 10 ; number of keystrokes between auto-saves (default: 300)
+ )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

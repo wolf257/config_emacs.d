@@ -28,9 +28,12 @@
 (setq org-agenda-files
       (find-lisp-find-files "~/mes_docs/emacs/organisation/" "\.org$"))
 
+;; Var perso
+(setq my-org-refile)
+
 ;;; Always want to have my refile file at hand
 (global-set-key (kbd "C-c o")
-                (lambda () (interactive) (find-file "~/mes_docs/emacs/organisation/refile.org")))
+                (lambda () (interactive) (find-file my-org-refile)))
 
 ;;(setq org-agenda-start-on-weekday 1) ;; deja defini dans init-org.el
 (setq org-agenda-time-grid
@@ -48,11 +51,11 @@
          "* %? :%^G"
          :empty-lines 1)
 
-        ("t" "todo" entry (file "~/mes_docs/emacs/refile.org")
+        ("t" "todo" entry (file my-org-refile)
          "* TODO %?\n%U\n" :clock-resume t
          :empty-lines 1)
 
-        ("n" "note" entry (file "~/mes_docs/emacs/refile.org")
+        ("n" "note" entry (file my-org-refile)
          "* %? :NOTE:\nDate : %T\nFile visited : %f \n" :clock-resume t
          :empty-lines 1)
 
@@ -62,6 +65,7 @@
 
 ;;; To find the right file for journal
 
+;; Var perso
 (setq org-journal-dir "~/mes_docs/emacs/journal/")
 
 ;; To create a new journal file, I first created a function to create the file’s name:
