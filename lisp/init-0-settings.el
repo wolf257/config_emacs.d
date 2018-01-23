@@ -171,7 +171,7 @@
     (message "Aborting")))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Keybindings                                   ;;
+;; Mac modifier                                  ;;
 
 (when *is-a-mac*
   (setq mac-command-modifier 'meta) ;; make cmd key do Meta
