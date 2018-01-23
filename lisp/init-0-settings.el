@@ -170,6 +170,14 @@
       (message "Opening file...")
     (message "Aborting")))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Keybindings                                   ;;
+
+(when *is-a-mac*
+  (setq mac-command-modifier 'meta) ;; make cmd key do Meta
+  (setq mac-option-modifier 'control) ;; make cmd key do Control. was 'none'
+  ;;(setq mac-control-modifier 'none) ;; was 'control'
+  )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Keybindings                                   ;;
