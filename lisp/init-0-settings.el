@@ -129,13 +129,13 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; GROUP: Files -> Back up
-(defvar backup-directory "~/.emacs.d/backups")
+(setq backup-directory "~/.emacs.d/backups")
 (if (not (file-exists-p backup-directory))
     (make-directory backup-directory t))
 
 (setq
  make-backup-files t        ; backup a file the first time it is saved
- backup-directory-alist `((".*" . backup-directory)) ; save backup files in ~/.emacs.d/backups
+ backup-directory-alist `((".*" . ,backup-directory)) ; save backup files in ~/.emacs.d/backups
  backup-by-copying t     ; copy the current file into backup directory
  version-control t   ; version numbers for backup files
  ;;

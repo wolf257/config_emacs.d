@@ -12,36 +12,48 @@
 ;; Automatically open your agenda whenever you start Emacs
 (org-agenda nil "a")
 
-;; allows direct changing from any task todo state to any other state
-;; with C-c C-t KEY
-(setq org-use-fast-todo-selection t)
-
 ;;; just a default location to look for Org files
 (setq org-directory "~/mes_docs/emacs/org_files/")
 
 ;;; Default target for storing notes
 (setq org-default-notes-file "~/mes_docs/emacs/notes")
 
-;; Where to find agenda files.
-;;; recherche recursive
-(load-library "find-lisp")
-(setq org-agenda-files
-      (find-lisp-find-files "~/mes_docs/emacs/organisation/" "\.org$"))
+
+;;; TODO keywords
+
+
+;; allows direct changing from any task todo state to any other state
+;; with C-c C-t KEY
+(setq org-use-fast-todo-selection t)
+
+;; The vertical bar separates the TODO keywords (states that need action)
+;; from the DONE states (which need no further action)
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)"  "HOLD(h)" "|" "DONE(d!/!)" "CANCELLED(o@)")
+        (sequence "REVIEW(r)" "CORRECTED(b)" "|" "FINISHED(f)")
+        ))
+;; record a note for every state :
+;; by adding special markers ‘!’ (for a timestamp)
+;; or ‘@’ (for a note with timestamp).
+
+
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "red" :weight bold))
+        ("NEXT" . (:foreground "green" :weight bold))
+        ("STARTED" . (:foreground "green" :weight bold))
+        ("DONE" . (:foreground "cyan" :weight bold))
+        ("HOLD" . (:foreground "black" :weight bold))
+        ))
+
+
+;;; Capturing
 
 ;; Var perso
-(setq my-org-refile)
+(setq my-org-refile "~/mes_docs/emacs/organisation/refile.org")
 
 ;;; Always want to have my refile file at hand
 (global-set-key (kbd "C-c o")
                 (lambda () (interactive) (find-file my-org-refile)))
-
-;;(setq org-agenda-start-on-weekday 1) ;; deja defini dans init-org.el
-(setq org-agenda-time-grid
-      '((daily today require-timed)
-        ;;"----------------"
-        (800 1200 1600 2000)))
-
-;;; Capturing
 
 (setq org-capture-templates
       '(    ;; ... other templates
@@ -81,14 +93,15 @@
   (find-file (get-journal-file-today)))
 
 ;;('fmakunbound 'journal-file-today)
+
 
-;; Tags with fast selection keys
+;; Tags with fast selection keys C-c C-q
 (setq org-tag-alist (quote (
                             ;; les elements entres (start|end)group sont exclusifs
                             ;;(:startgroup)
                             ;; ("@office" . ?o)
                             ;; ("@home" . ?H)
-                            (:endgroup)
+                            ;; (:endgroup)
                             ("family_mine" . ?f)
                             ("introspection" . ?i)
                             ("health" . ?h)
@@ -105,12 +118,24 @@
           (lambda ()
             (setq-local org-tag-alist (org-global-tags-completion-table))))
 
+
+;; Agenda
 
-;; Use IDO for both buffer and file completion and ido-everywhere to t
-;; (setq org-completion-use-ido t)
-;; (setq ido-everywhere t)
-;; (setq ido-max-directory-size 100000)
-;; (ido-mode (quote both))
+;; Where to find agenda files.
+;;; recherche recursive
+(load-library "find-lisp")
+(setq org-agenda-files
+      (find-lisp-find-files "~/mes_docs/emacs/organisation/" "\.org$"))
+
+;;(setq org-agenda-start-on-weekday 1) ;; deja defini dans init-org.el
+(setq org-agenda-time-grid
+      '((daily today require-timed)
+        ;;"----------------"
+        (800 1200 1600 2000)))
+
+
+
+
 
 
 (provide 'init-0-org)
