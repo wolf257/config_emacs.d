@@ -41,58 +41,9 @@
       '(("TODO" . (:foreground "red" :weight bold))
         ("NEXT" . (:foreground "green" :weight bold))
         ("STARTED" . (:foreground "green" :weight bold))
-        ("DONE" . (:foreground "cyan" :weight bold))
+        ("DONE" . (:foreground "blue" :weight bold))
         ("HOLD" . (:foreground "black" :weight bold))
         ))
-
-
-;;; Capturing
-
-;; Var perso
-(setq my-org-refile "~/mes_docs/emacs/organisation/refile.org")
-
-;;; Always want to have my refile file at hand
-(global-set-key (kbd "C-c o")
-                (lambda () (interactive) (find-file my-org-refile)))
-
-(setq org-capture-templates
-      '(    ;; ... other templates
-
-        ("j" "Journal Entry"
-         entry (file+datetree get-journal-file-today)
-         "* %? :%^G"
-         :empty-lines 1)
-
-        ("t" "todo" entry (file my-org-refile)
-         "* TODO %?\n%U\n" :clock-resume t
-         :empty-lines 1)
-
-        ("n" "note" entry (file my-org-refile)
-         "* %? :NOTE:\nDate : %T\nFile visited : %f \n" :clock-resume t
-         :empty-lines 1)
-
-        ))
-
-
-
-;;; To find the right file for journal
-
-;; Var perso
-(setq org-journal-dir "~/mes_docs/emacs/journal/")
-
-;; To create a new journal file, I first created a function to create the file’s name:
-(defun get-journal-file-today ()
-  "Return filename for today's journal entry."
-  (let ((daily-name (format-time-string "%Y%m")))
-    (expand-file-name (concat org-journal-dir daily-name ".org" ))))
-
-;; Then a simple function to load that file:
-(defun journal-file-today ()
-  "Create and load a journal file based on today's date."
-  (interactive)
-  (find-file (get-journal-file-today)))
-
-;;('fmakunbound 'journal-file-today)
 
 
 ;; Tags with fast selection keys C-c C-q
@@ -117,6 +68,64 @@
 (add-hook 'org-capture-mode-hook
           (lambda ()
             (setq-local org-tag-alist (org-global-tags-completion-table))))
+
+
+;;; Capturing
+
+;; Var perso
+(setq my-org-refile "~/mes_docs/emacs/organisation/refile.org")
+
+;;; Always want to have my refile file at hand
+(global-set-key (kbd "C-c o")
+                (lambda () (interactive) (find-file my-org-refile)))
+
+(setq org-capture-templates
+      '(    ;; ... other templates
+
+        ("j" "Journal Entry"
+         entry (file+datetree get-journal-file-today)
+         "* %? :%^G"
+         :empty-lines 1)
+
+        ("t" "todo" entry (file my-org-refile)
+         "* TODO %? :NOTE:\n%U " ;;:clock-resume t
+         :empty-lines 1)
+
+        ("s" "todo with schedule" entry (file my-org-refile)
+         "* TODO %? \nSCHEDULED: %^t " ;;:clock-resume t
+         :empty-lines 1)
+
+        ("n" "note" entry (file my-org-refile)
+         "* %? :NOTE:\nDate : %T \nFile visited : %f \n" ;;:clock-resume t
+         :empty-lines 1)
+
+        ("r" "Book review" entry (file my-org-refile)
+         "* Title : %^{Title} \n** Author(s): %^{Author} \n** Review on: %^t \nAvis : %?"
+         :empty-lines 1
+         )
+
+        ))
+
+
+
+;;; To find the right file for journal
+
+;; Var perso
+(setq org-journal-dir "~/mes_docs/emacs/journal/")
+
+;; To create a new journal file, I first created a function to create the file’s name:
+(defun get-journal-file-today ()
+  "Return filename for today's journal entry."
+  (let ((daily-name (format-time-string "%Y%m")))
+    (expand-file-name (concat org-journal-dir daily-name ".org" ))))
+
+;; Then a simple function to load that file:
+(defun journal-file-today ()
+  "Create and load a journal file based on today's date."
+  (interactive)
+  (find-file (get-journal-file-today)))
+
+;;('fmakunbound 'journal-file-today)
 
 
 ;; Agenda
