@@ -21,7 +21,6 @@
 
 ;;; TODO keywords
 
-
 ;; allows direct changing from any task todo state to any other state
 ;; with C-c C-t KEY
 (setq org-use-fast-todo-selection t)
@@ -62,6 +61,7 @@
                             ("correspondance" . ?c)
                             ("reve" . ?r)
                             ("society" . ?s)
+                            ("spirituality" . ?g)
                             )))
 
 ;; Tags completion from org-capture window
@@ -70,7 +70,7 @@
             (setq-local org-tag-alist (org-global-tags-completion-table))))
 
 
-;;; Capturing
+;;; Capturing C-c c
 
 ;; Var perso
 (setq my-org-refile "~/mes_docs/emacs/organisation/refile.org")
