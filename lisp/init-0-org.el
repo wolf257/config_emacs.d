@@ -26,16 +26,16 @@
 ;; with C-c C-t KEY
 (setq org-use-fast-todo-selection t)
 
-;; The vertical bar separates the TODO keywords (states that need action)
-;; from the DONE states (which need no further action)
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)"  "HOLD(h)" "|" "DONE(d!/!)" "CANCELLED(o@)")
+      '((sequence "TODO(t)" "NEXT(n)" "STARTED(s)"  "HOLD(h)" "|" "DONE(d!)" "CANCELLED(o@)")
         (sequence "REVIEW(r)" "CORRECTED(b)" "|" "FINISHED(f)")
         ))
-;; record a note for every state :
-;; by adding special markers ‘!’ (for a timestamp)
-;; or ‘@’ (for a note with timestamp).
+;; The vertical bar separates the TODO keywords (states that need action)
+;;; from the DONE states (which need no further action)
 
+;; '!' for a timestamp
+;; ‘@’ for a note with timestamp.
+;; '/!' a timestamp should be recorded when leaving the state
 
 (setq org-todo-keyword-faces
       '(("TODO" . (:foreground "red" :weight bold))
@@ -80,30 +80,39 @@
                 (lambda () (interactive) (find-file my-org-refile)))
 
 (setq org-capture-templates
-      '(    ;; ... other templates
+      '(
+        ;; ... other templates
 
         ("j" "Journal Entry"
          entry (file+datetree get-journal-file-today)
          "* %? :%^G"
          :empty-lines 1)
 
-        ("t" "todo" entry (file my-org-refile)
+        ;;==========================================;;
+        ("t" "Templates for TODOs")
+
+        ("tn" "todo" entry (file my-org-refile)
          "* TODO %? :NOTE:\n%U " ;;:clock-resume t
          :empty-lines 1)
 
-        ("s" "todo with schedule" entry (file my-org-refile)
+        ("ts" "todo with schedule" entry (file my-org-refile)
          "* TODO %? \nSCHEDULED: %^t " ;;:clock-resume t
          :empty-lines 1)
 
+        ("td" "todo with deadline" entry (file my-org-refile)
+         "* TODO %? \nDEADLINE: %^t " ;;:clock-resume t
+         :empty-lines 1)
+        ;;==========================================;;
+
         ("n" "note" entry (file my-org-refile)
-         "* %? :NOTE:\nDate : %T \nFile visited : %f \n" ;;:clock-resume t
+         "* %? :CONTEXT:\nDate : %T" ;File visited : %f" ;;:clock-resume t
          :empty-lines 1)
 
         ("r" "Book review" entry (file my-org-refile)
-         "* Title : %^{Title} \n** Author(s): %^{Author} \n** Review on: %^t \nAvis : %?"
-         :empty-lines 1
-         )
+         "* Title : %^{title}\n** Author(s): %^{author}\n** Review on: %^t\nAvis : %?"
+         :empty-lines 1)
 
+        ;; ... other templates
         ))
 
 
