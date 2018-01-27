@@ -145,6 +145,9 @@
 (setq org-agenda-files
       (find-lisp-find-files "~/mes_docs/emacs/organisation/" "\.org$"))
 
+;; Number of days before expiration during which a deadline becomes active
+(setq org-deadline-warning-days 14)
+
 ;;(setq org-agenda-start-on-weekday 1) ;; deja defini dans init-org.el
 (setq org-agenda-time-grid
       '((daily today require-timed)
