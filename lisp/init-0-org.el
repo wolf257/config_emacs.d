@@ -150,9 +150,9 @@
 
 ;;(setq org-agenda-start-on-weekday 1) ;; deja defini dans init-org.el
 (setq org-agenda-time-grid
-      '((daily today require-timed)
+      '((week today require-timed)
         ;;"----------------"
-        (800 1200 1600 2000)))
+        (800 1000 1200 1400 1600 1800 2000)))
 
 
 
