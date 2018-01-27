@@ -19,7 +19,7 @@
 (setq org-default-notes-file "~/mes_docs/emacs/notes")
 
 
-;;; TODO keywords
+;;; TODO keywords : C-c C-t
 
 ;; allows direct changing from any task todo state to any other state
 ;; with C-c C-t KEY
@@ -45,7 +45,7 @@
         ))
 
 
-;; Tags with fast selection keys C-c C-q
+;; Tags with fast selection keys :  C-c C-q
 (setq org-tag-alist (quote (
                             ;; les elements entres (start|end)group sont exclusifs
                             ;;(:startgroup)
