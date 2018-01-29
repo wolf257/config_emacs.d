@@ -92,20 +92,20 @@
         ("t" "Templates for TODOs")
 
         ("tn" "todo" entry (file my-org-refile)
-         "* TODO %? :NOTE:\n%U " ;;:clock-resume t
+         "* TODO %? :NOTE:\n %U " ;;:clock-resume t
          :empty-lines 1)
 
         ("ts" "todo with schedule" entry (file my-org-refile)
-         "* TODO %? \nSCHEDULED: %^t " ;;:clock-resume t
+         "* TODO %? \n SCHEDULED: %^t " ;;:clock-resume t
          :empty-lines 1)
 
         ("td" "todo with deadline" entry (file my-org-refile)
-         "* TODO %? \nDEADLINE: %^t " ;;:clock-resume t
+         "* TODO %? \n DEADLINE: %^t " ;;:clock-resume t
          :empty-lines 1)
         ;;==========================================;;
 
         ("n" "note" entry (file my-org-refile)
-         "* %? :CONTEXT:\nDate : %T" ;File visited : %f" ;;:clock-resume t
+         "* %? :CONTEXT:\n Date : %T" ;File visited : %f" ;;:clock-resume t
          :empty-lines 1)
 
         ("r" "Book review" entry (file my-org-refile)
