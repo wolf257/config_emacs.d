@@ -41,6 +41,15 @@
 ;;----------------------------------------------------------------------------
 (require 'init-preload-local nil t)
 
+
+;;----------------------------------------------------------------------------
+;; H7 : Mes fichiers.el
+;;----------------------------------------------------------------------------
+
+(require 'init-0-settings)
+(require 'init-0-org)
+(require 'init-0-python)
+
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
@@ -85,7 +94,6 @@
 
 (require 'init-compile)
 ;;(require 'init-crontab)
-(require 'init-textile)
 (require 'init-markdown)
 (require 'init-csv)
 (require 'init-erlang)
@@ -101,14 +109,8 @@
 (require 'init-haskell)
 (require 'init-elm)
 (require 'init-purescript)
-(require 'init-ruby-mode)
-(require 'init-rails)
 (require 'init-sql)
-(require 'init-rust)
-(require 'init-toml)
-(require 'init-yaml)
 (require 'init-docker)
-(require 'init-terraform)
 
 (require 'init-paredit)
 (require 'init-lisp)
@@ -124,13 +126,14 @@
 
 (require 'init-folding)
 (require 'init-dash)
-(require 'init-ledger)
+;; (require 'init-ledger) ;; out
 ;; Extra packages which don't require any configuration
 
 (require-package 'gnuplot)
 (require-package 'lua-mode)
 (require-package 'htmlize)
 (require-package 'dsvn)
+
 (when *is-a-mac*
   (require-package 'osx-location))
 (maybe-require-package 'regex-tool)
@@ -165,13 +168,6 @@
 
 (when (maybe-require-package 'uptimes)
   (add-hook 'after-init-hook (lambda () (require 'uptimes))))
-
-;;----------------------------------------------------------------------------
-;; H7 : Mes fichiers.el
-;;----------------------------------------------------------------------------
-
-(require 'init-0-settings)
-(require 'init-0-org)
 
 ;;----------------------------------------------------------------------------
 (provide 'init)
