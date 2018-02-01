@@ -85,31 +85,31 @@
 
         ("j" "Journal Entry"
          entry (file+datetree get-journal-file-today)
-         "* %? :%^G"
+         "* %? :%^G \n"
          :empty-lines 1)
 
         ;;==========================================;;
         ("t" "Templates for TODOs")
 
         ("tn" "todo" entry (file my-org-refile)
-         "* TODO %? :NOTE:\n %U " ;;:clock-resume t
+         "* TODO %? :NOTE:\n %U \n" ;;:clock-resume t
          :empty-lines 1)
 
         ("ts" "todo with schedule" entry (file my-org-refile)
-         "* TODO %? \n SCHEDULED: %^t " ;;:clock-resume t
+         "* TODO %? \n SCHEDULED: %^t \n" ;;:clock-resume t
          :empty-lines 1)
 
         ("td" "todo with deadline" entry (file my-org-refile)
-         "* TODO %? \n DEADLINE: %^t " ;;:clock-resume t
+         "* TODO %? \n DEADLINE: %^t \n" ;;:clock-resume t
          :empty-lines 1)
         ;;==========================================;;
 
         ("n" "note" entry (file my-org-refile)
-         "* %? :CONTEXT:\n Date : %T" ;File visited : %f" ;;:clock-resume t
+         "* %? :CONTEXT:\n Date : %T \n" ;File visited : %f" ;;:clock-resume t
          :empty-lines 1)
 
         ("r" "Book review" entry (file my-org-refile)
-         "* Title : %^{title}\n** Author(s): %^{author}\n** Review on: %^t\nAvis : %?"
+         "* Title : %^{title}\n** Author(s): %^{author}\n** Review on: %^t\nAvis : %? \n"
          :empty-lines 1)
 
         ;; ... other templates
