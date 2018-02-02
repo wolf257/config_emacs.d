@@ -85,32 +85,47 @@
 
         ("j" "Journal Entry"
          entry (file+datetree get-journal-file-today)
-         "* %? :%^G \n"
+         "* %? :%^G"
          :empty-lines 1)
 
         ;;==========================================;;
         ("t" "Templates for TODOs")
 
-        ("tn" "todo" entry (file my-org-refile)
-         "* TODO %? :NOTE:\n %U \n" ;;:clock-resume t
+        ("tn" "todo" entry (file+headline my-org-refile "TODOs")
+         "* TODO %? :NOTE:\n %U" ;;:clock-resume t
          :empty-lines 1)
 
-        ("ts" "todo with schedule" entry (file my-org-refile)
-         "* TODO %? \n SCHEDULED: %^t \n" ;;:clock-resume t
+        ("ts" "todo with schedule" entry (file+headline my-org-refile "TODOs with schedule")
+         "* TODO %? \n SCHEDULED: %^t" ;;:clock-resume t
          :empty-lines 1)
 
-        ("td" "todo with deadline" entry (file my-org-refile)
-         "* TODO %? \n DEADLINE: %^t \n" ;;:clock-resume t
+        ("td" "todo with deadline" entry (file+headline my-org-refile "TODOs with deadline")
+         "* TODO %? \n DEADLINE: %^t" ;;:clock-resume t
          :empty-lines 1)
         ;;==========================================;;
 
         ("n" "note" entry (file my-org-refile)
-         "* %? :CONTEXT:\n Date : %T \n" ;File visited : %f" ;;:clock-resume t
+         "* %? :CONTEXT:\n Date : %T" ;File visited : %f" ;;:clock-resume t
          :empty-lines 1)
 
         ("r" "Book review" entry (file my-org-refile)
-         "* Title : %^{title}\n** Author(s): %^{author}\n** Review on: %^t\nAvis : %? \n"
+         "* Title : %^{title}\n** Author(s): %^{author}\n** Review on: %^t\nAvis : %?"
          :empty-lines 1)
+
+        ;;==========================================;;
+        ("d" "Templates for Documentation NLP")
+
+        ("da"  "Article de Recherce en ligne"
+         entry (file+headline "~/mes_docs/emacs/research_tnm/research.org" "Article")
+         "* %^{Sujet} \n:PROPERTIES:\n:Created: %U\n:Link: [[%^{Link}][%^{Link description}]]\n:END: \n\nBrief description:\n%?"
+         ;;"* %^{Sujet} :%^{my_tag_1|}:article: \n:PROPERTIES:\n:Created: %U\n:Link: [[%^{Link}][%^{Link description}]]\n:END:\n%i\nBrief description:\n%?"
+         :prepend t :empty-lines 1 :created t
+         )
+
+        ;; ("" "")
+
+        ;;==========================================;;
+
 
         ;; ... other templates
         ))
