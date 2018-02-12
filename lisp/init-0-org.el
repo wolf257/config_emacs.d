@@ -72,6 +72,11 @@
 
 ;;; Capturing C-c c
 
+(setq d_projets "~/mes_docs/emacs/grd_projets/")
+
+(if (not (file-exists-p d_projets))
+    (make-directory d_projets t))
+
 ;; Var perso
 (setq my-org-refile "~/mes_docs/emacs/organisation/refile.org")
 
@@ -102,27 +107,82 @@
         ("td" "todo with deadline" entry (file+headline my-org-refile "TODOs with deadline")
          "* TODO %? \n DEADLINE: %^t" ;;:clock-resume t
          :empty-lines 1)
+
         ;;==========================================;;
 
-        ("n" "note" entry (file my-org-refile)
-         "* %? :CONTEXT:\n Date : %T" ;File visited : %f" ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("n" "note" entry (file my-org-refile)
+        ;;  "* %? :CONTEXT:\n Date : %T" ;File visited : %f" ;;:clock-resume t
+        ;;  :empty-lines 1)
 
-        ("r" "Book review" entry (file my-org-refile)
+        ;; ("q" "Questionnement de texte" entry (file+headline my-org-refile "NLP : Questionnement de texte")
+        ;;  "* %? :CONTEXT:\n Date : %T" ;File visited : %f" ;;:clock-resume t
+        ;;  :empty-lines 1)
+
+        ;; ("d" "definition" entry (file+headline my-org-refile "Définitions")
+        ;;  "* %? " ;File visited : %f" ;;:clock-resume t
+        ;;  :empty-lines 1)
+
+        ("r" "Book review" entry (file+headline my-org-refile "Book reviews")
          "* Title : %^{title}\n** Author(s): %^{author}\n** Review on: %^t\nAvis : %?"
          :empty-lines 1)
 
         ;;==========================================;;
-        ("d" "Templates for Documentation NLP")
+        ;; ("l" "Templates for Documentation NLP (l for Language)")
 
-        ("da"  "Article de Recherce en ligne"
-         entry (file+headline "~/mes_docs/emacs/research_tnm/research.org" "Article")
-         "* %^{Sujet} \n:PROPERTIES:\n:Created: %U\n:Link: [[%^{Link}][%^{Link description}]]\n:END: \n\nBrief description:\n%?"
-         ;;"* %^{Sujet} :%^{my_tag_1|}:article: \n:PROPERTIES:\n:Created: %U\n:Link: [[%^{Link}][%^{Link description}]]\n:END:\n%i\nBrief description:\n%?"
-         :prepend t :empty-lines 1 :created t
-         )
+        ;; ("la"  "Article de Recherce en ligne"
+        ;;  entry (file+headline "~/mes_docs/emacs/research_tnm/research.org" "Article")
+        ;;  "* %^{Sujet} \n:PROPERTIES:\n:Created: %U\n:Link: [[%^{Link}][%^{Link description}]]\n:END: \n\nBrief description:\n%?"
+        ;;  ;;"* %^{Sujet} :%^{my_tag_1|}:article: \n:PROPERTIES:\n:Created: %U\n:Link: [[%^{Link}][%^{Link description}]]\n:END:\n%i\nBrief description:\n%?"
+        ;;  :prepend t :empty-lines 1 :created t
+        ;;  )
 
-        ;; ("" "")
+        ;;==========================================;;
+        ("p" "Templates for Projects ")
+
+        ("ps" "... School")
+
+        ("psr" "... Recherches à faire" entry (file+headline (concat d_projets "school.org") "Recherches")
+         "* TODO %? " ;;:clock-resume t
+         :empty-lines 1)
+
+        ("psi" "... Idées" entry (file+headline (concat d_projets "school.org") "Idées")
+         "* %? " ;;:clock-resume t
+         :empty-lines 1)
+
+        ("psn" "... Notes vracs" entry (file+headline (concat d_projets "school.org") "Notes vracs")
+         "* %? " ;;:clock-resume t
+         :empty-lines 1)
+
+        ;;;;;;;;;
+        ("pe" "... Maison Edition")
+
+        ("per" "... Recherches à faire" entry (file+headline (concat d_projets "editions.org") "Recherches")
+         "* TODO %? " ;;:clock-resume t
+         :empty-lines 1)
+
+        ("pei" "... Idées" entry (file+headline (concat d_projets "editions.org") "Idées")
+         "* %? " ;;:clock-resume t
+         :empty-lines 1)
+
+        ("pen" "... Notes vracs" entry (file+headline (concat d_projets "editions.org") "Notes vracs")
+         "* %? " ;;:clock-resume t
+         :empty-lines 1)
+
+        ;;;;;;;;
+
+        ("pi" "... Imprimerie")
+
+        ("pir" "... Recherches à faire" entry (file+headline (concat d_projets "imprimerie.org") "Recherches")
+         "* TODO %? " ;;:clock-resume t
+         :empty-lines 1)
+
+        ("pii" "... Idées" entry (file+headline (concat d_projets "imprimerie.org") "Idées")
+         "* %? " ;;:clock-resume t
+         :empty-lines 1)
+
+        ("pin" "... Notes vracs" entry (file+headline (concat d_projets "imprimerie.org") "Notes vracs")
+         "* %? " ;;:clock-resume t
+         :empty-lines 1)
 
         ;;==========================================;;
 
