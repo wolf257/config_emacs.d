@@ -177,8 +177,8 @@
   (setq mac-command-modifier 'meta) ;; cmd to M-x.
   (setq mac-right-command-modifier 'meta) ;; right cmd to M-x.
 
-  (setq mac-option-modifier 'control) ;; alt/option to C-x. was 'none'.
-  (setq mac-right-option-modifier 'none) ;; right alt-option to none. Sinon, plus de alt-latin.
+  (setq mac-option-modifier 'none) ;; alt/option to C-x. was 'none'.
+  (setq mac-right-option-modifier 'control) ;; right alt-option to none. Sinon, plus de alt-latin.
 
   ;;(setq mac-control-modifier 'none) ;; was 'control'
   ;;(setq mac-right-control-modifier 'none) ;; Non-existent of MBA keyboard
