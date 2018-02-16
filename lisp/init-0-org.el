@@ -19,8 +19,27 @@
 (setq org-default-notes-file "~/mes_docs/emacs/notes")
 
 
-;; Facing
+;; Appearance org mode
 
+;; BULLETs
+(require-package 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+(setq org-bullets-face-name (quote org-bullet-face))
+(setq org-bullets-bullet-list '( "♔" "♕" "♖" "♗" "♙" "⊙" "✸" "○" "◇")) ;; and we come back to do beg
+
+;;
+(setq org-ellipsis " ...") ;; default 'nil' ;; ↻
+
+(custom-theme-set-faces
+ 'user
+ '(org-level-1 ((t (:weight semi-bold :height 1.25 :inherit outline-1))))
+ '(org-level-2 ((t (:weight semi-bold :height 1.2 :inherit outline-2))))
+ '(org-level-3 ((t (:weight semi-bold :height 1.15 :inherit outline-3))))
+ ;; '(org-level-4 ((t (:weight semi-bold :height 1.0))))
+
+ ;; pour les prop de outline-x voir:
+ ;;; customize groupe + emacs + text + outline
+ )
 
 
 ;;; TODO keywords : C-c C-t
