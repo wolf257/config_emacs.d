@@ -19,6 +19,10 @@
 (setq org-default-notes-file "~/mes_docs/emacs/notes")
 
 
+;; Facing
+
+
+
 ;;; TODO keywords : C-c C-t
 
 ;; allows direct changing from any task todo state to any other state
@@ -79,10 +83,16 @@
 
 ;; Var perso
 (setq my-org-refile "~/mes_docs/emacs/organisation/refile.org")
+(setq my-org-zikr "~/mes_docs/emacs/journal/zikr.org")
+
+(global-set-key (kbd "C-c o") nil) ;; Remove the old keybinding
 
 ;;; Always want to have my refile file at hand
-(global-set-key (kbd "C-c o")
+(global-set-key (kbd "C-c o j")
                 (lambda () (interactive) (find-file my-org-refile)))
+
+(global-set-key (kbd "C-c o z")
+                (lambda () (interactive) (find-file my-org-zikr)))
 
 (setq org-capture-templates
       '(
@@ -124,6 +134,10 @@
 
         ("r" "Book review" entry (file+headline my-org-refile "Book reviews")
          "* Title : %^{title}\n** Author(s): %^{author}\n** Review on: %^t\nAvis : %?"
+         :empty-lines 1)
+
+        ("z" "zikr" entry (file my-org-zikr)
+         "* %^{rank} - %^{name} - rep : %^{number} , if_day : %^{number*5} \n** b_date : %^t , e_date : %^t \n*** Commentaire \n %? " ;;:clock-resume t
          :empty-lines 1)
 
         ;;==========================================;;
