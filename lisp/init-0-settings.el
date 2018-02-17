@@ -191,6 +191,9 @@
 ;; Keybindings                                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;(global-set-key (kbd "C-z") nil) ; was sanityinc/maybe-suspend-frameqq
+(global-set-key (kbd "C-z") 'undo) ; 【Ctrl+z】
+
 ;; easy keys to split window. Key based on ErgoEmacs keybinding
 (global-set-key (kbd "M-2") 'split-window-right) ; split pane top/bottom
 (global-set-key (kbd "M-4") 'split-window-below) ; split pane top/bottom
@@ -201,8 +204,8 @@
 (global-set-key (kbd "C-x C-i") 'ido-imenu)
 
 ;;M-up/down -> start/end of buffer. Yay!
-(global-set-key (kbd "M-<up>") 'beginning-of-buffer)
-(global-set-key (kbd "M-<down>") 'end-of-buffer)
+;;;(global-set-key (kbd "M-<up>") 'beginning-of-buffer)
+;;;(global-set-key (kbd "M-<down>") 'end-of-buffer)
 (global-set-key (kbd "M-[") 'beginning-of-buffer)
 (global-set-key (kbd "M-]") 'end-of-buffer)
 
@@ -212,7 +215,8 @@
 (global-set-key (kbd "M-i") 'previous-line) ; was tab-to-tab-stop
 (global-set-key (kbd "M-k") 'next-line) ; was kill-sentence
 
-
+(global-set-key (kbd "M-<left>") 'backward-word)
+(global-set-key (kbd "M-<right>") 'forward-word)
 
 ;;Remap movement keys to get rid of emacs pinky
 ;;Jump back and forth by 5.
@@ -227,7 +231,6 @@
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
-
 ;; Kill, yank
 ;;; c for copy
 (global-set-key (kbd "M-c") nil) ;; Remove the old keybinding capitalize-word
@@ -240,8 +243,9 @@
 (global-set-key (kbd "M-c M-v") 'yank)
 
 
-;;(global-set-key (kbd "M-c .") '...)
-;;(global-set-key (kbd "M-c .") '...)
+
+(global-set-key (kbd "M-SPC") 'nil) ;; used by system
+
 ;;(global-set-key (kbd "M-c .") '...)
 ;;(global-set-key (kbd "M-c .") '...)
 
