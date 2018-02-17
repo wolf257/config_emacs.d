@@ -7,6 +7,9 @@
 ;; Highlight current line
 (global-hl-line-mode)
 
+;; Line wrapping
+(global-visual-line-mode t)
+
 ;; Show line number at left
 (global-linum-mode 1)
 
