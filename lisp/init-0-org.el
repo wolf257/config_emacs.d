@@ -18,6 +18,7 @@
 ;;; Default target for storing notes
 (setq org-default-notes-file "~/mes_docs/emacs/notes")
 
+(setq org-drawers '("PROPERTIES" "CLOCK" "LOGBOOK" "RESULTS" "CONTEXT"))
 
 ;; Appearance org mode
 
@@ -102,7 +103,7 @@
 
 ;; Var perso
 (setq my-org-refile "~/mes_docs/emacs/organisation/refile.org")
-(setq my-org-zikr "~/mes_docs/emacs/journal/zikr.org")
+(setq my-org-zikr "~/mes_docs/emacs/journal/") ;;; zikr.org")
 
 (global-set-key (kbd "C-c o") nil) ;; Remove the old keybinding
 
@@ -155,8 +156,15 @@
          "* Title : %^{title}\n** Author(s): %^{author}\n** Review on: %^t\nAvis : %?"
          :empty-lines 1)
 
-        ("z" "zikr" entry (file my-org-zikr)
-         "* %^{rank} - %^{name} - rep : %^{number} , if_day : %^{number*5} \n** b_date : %^t , e_date : %^t \n*** Commentaire \n %? " ;;:clock-resume t
+        ;;==========================================;;
+        ("z" "zikr")
+
+        ("zs" "suivi" entry (file (concat my-org-zikr "zikr_suivi.org"))
+         "* %^{rank} - %^{name} - rep : %^{number} , if_day : %^{number*5} \n** b_date : %^t , e_date : %^t" ;;:clock-resume t
+         :empty-lines 1)
+
+        ("zm" "meditation" entry (file (concat my-org-zikr "zikr_meditation.org"))
+         "* Name : %^{name} \n:CONTEXT: \ndate de saisie : %T \n:END: \n\n%?" ;;:clock-resume t
          :empty-lines 1)
 
         ;;==========================================;;
