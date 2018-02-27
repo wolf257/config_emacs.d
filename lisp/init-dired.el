@@ -1,4 +1,4 @@
-(require-package 'dired-sort)
+;;(require-package 'dired-sort)
 
 (setq-default dired-dwim-target t)
 
@@ -11,7 +11,7 @@
     (diredfl-global-mode)))
 
 (after-load 'dired
-  (require 'dired-sort)
+  ;;(require 'dired-sort)
   (setq dired-recursive-deletes 'top)
   (define-key dired-mode-map [mouse-2] 'dired-find-file)
   (define-key dired-mode-map (kbd "C-c C-p") 'wdired-change-to-wdired-mode)

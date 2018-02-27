@@ -15,6 +15,9 @@
 ;;; just a default location to look for Org files
 (setq org-directory "~/mes_docs/emacs/org_files/")
 
+(if (not (file-exists-p org-directory))
+    (make-directory org-directory t))
+
 ;;; Default target for storing notes
 (setq org-default-notes-file "~/mes_docs/emacs/notes")
 
@@ -100,6 +103,11 @@
 
 (if (not (file-exists-p d_projets))
     (make-directory d_projets t))
+
+(setq d_organisation "~/mes_docs/emacs/organisation")
+
+(if (not (file-exists-p d_organisation))
+    (make-directory d_organisation t))
 
 ;; Var perso
 (setq my-org-refile "~/mes_docs/emacs/organisation/refile.org")
@@ -193,6 +201,11 @@
         ("psn" "... Notes vracs" entry (file+headline (concat d_projets "school.org") "Notes vracs")
          "* %? " ;;:clock-resume t
          :empty-lines 1)
+
+        ("psr" "... Reflexions in *_reflexions" entry (file (concat d_projets "school_reflexions.org"))
+         "* %? " ;;:clock-resume t
+         :empty-lines 1)
+
 
         ;;;;;;;;;
         ("pe" "... Maison Edition")
