@@ -128,7 +128,7 @@
 
         ("j" "Journal Entry"
          entry (file+datetree get-journal-file-today)
-         "* %? :%^G"
+         "* %? :%^G\n"
          :empty-lines 1)
 
         ;;==========================================;;

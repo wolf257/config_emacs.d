@@ -49,7 +49,7 @@
 (require 'init-0-settings)
 (require 'init-0-org)
 (require 'init-0-python)
-
+(require 'init-0-tex)
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
