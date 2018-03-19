@@ -1,5 +1,9 @@
 
 
+;; set environment
+(setenv "LANG" "en_US.UTF-8")
+(set-locale-environment "en_US.UTF-8")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Auctex and RefTex                             ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -11,7 +15,8 @@
 (setq TeX-parse-self t)
 
 ;; to be able to use \include and \input
-(setq-default TeX-master nil)
+(setq-default TeX-master nil) ;;query for master file
+
 
 (require 'reftex)
 
@@ -28,9 +33,20 @@
 (setq reftex-plug-into-AUCTeX t) ; Make RefTeX interact with AUCTeX,
 
 
+;; (add-to-list 'org-latex-pdf-process
+;;              '("lualatex -shell-escape -interaction nonstopmode %f")
+;; )
 
+(setq org-latex-pdf-process
+      '("lualatex -shell-escape -interaction nonstopmode %f"
+        "lualatex -shell-escape -interaction nonstopmode %f"))
 
-
+;; default
+;; (setq org-latex-pdf-process
+;;       '("pdflatex -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -interaction nonstopmode -output-directory %o %f" )
+;;       )
 
 
 (provide 'init-0-tex)
