@@ -78,9 +78,9 @@
                 \\pagestyle{fancy} % Use en-tetes et des pieds de page personnaliser grâce fancyhdr
                 \\usepackage[Glenn]{fncychap}
                 \\fancyhead[L, R, C]{} % définition en-tête
-                \\fancyfoot[L, R, C]{} % définition pied de page
-         		\\fancyhf{} % on efface tout
-        		\\renewcommand{\\headrulewidth}{0pt} % ligne haut out
+                \\fancyfoot[L, R]{} % définition pied de page
+                \\fancyfoot[C]{\\thepage}
+           		\\renewcommand{\\headrulewidth}{0pt} % ligne haut out
 	        	\\renewcommand{\\footrulewidth}{0pt} % ligne bas out
                 % others
                 \\usepackage{float}
