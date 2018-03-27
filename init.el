@@ -56,8 +56,8 @@
 
 (require-package 'wgrep)
 
-(when *is-a-mac*
-  (require-package 'project-local-variables))
+;;(when *is-a-mac*
+;;  (require-package 'project-local-variables))
 (require-package 'diminish)
 (require-package 'scratch)
 (require-package 'command-log-mode)
