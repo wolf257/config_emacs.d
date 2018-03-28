@@ -17,7 +17,7 @@
 (delete-selection-mode t)
 
 ;; default font
-(set-face-attribute 'default nil :font "Courier-18")
+(set-face-attribute 'default nil :font "Courier-16")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PACKAGE: golden-ratio                         ;;
