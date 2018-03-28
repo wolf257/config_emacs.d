@@ -16,6 +16,9 @@
 ;; overwrite selected text (à l'insertion)
 (delete-selection-mode t)
 
+;; default font
+(set-face-attribute 'default nil :font "Courier-18")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PACKAGE: golden-ratio                         ;;
 ;; GROUP: Environment -> Windows -> Golden Ratio ;;
