@@ -18,6 +18,7 @@
 
 ;; default font
 (set-face-attribute 'default nil :font "Courier-16")
+(setq frame-background-mode nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; PACKAGE: golden-ratio                         ;;
