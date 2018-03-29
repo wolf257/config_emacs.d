@@ -219,9 +219,12 @@
 ;;; y for yank
 (global-set-key (kbd "M-c M-v") 'yank)
 
+(global-set-key (kbd "M-c SPC") 'set-mark-command) ;; used by system
 
 
 (global-set-key (kbd "M-SPC") 'nil) ;; used by system
+(global-set-key (kbd "C-SPC") 'nil) ;; used by system
+
 
 ;;(global-set-key (kbd "M-c .") '...)
 ;;(global-set-key (kbd "M-c .") '...)
