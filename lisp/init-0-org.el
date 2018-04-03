@@ -12,14 +12,17 @@
 ;; Automatically open your agenda whenever you start Emacs
 (org-agenda nil "a")
 
+;;;;;;;;;;;; VERY IMPORTANT
+(setq base_emacs "~/mes_docs/1/emacs/")
+
 ;;; just a default location to look for Org files
-(setq org-directory "~/mes_docs/emacs/org_files/")
+(setq org-directory  (concat base_emacs "org_files/"))
 
 (if (not (file-exists-p org-directory))
     (make-directory org-directory t))
 
 ;;; Default target for storing notes
-(setq org-default-notes-file "~/mes_docs/emacs/notes")
+(setq org-default-notes-file (concat base_emacs "notes/"))
 
 (setq org-drawers '("PROPERTIES" "CLOCK" "LOGBOOK" "RESULTS" "CONTEXT"))
 
@@ -99,19 +102,19 @@
 
 ;;; Capturing C-c c
 
-(setq d_projets "~/mes_docs/emacs/grd_projets/")
+(setq d_projets (concat base_emacs "grd_projets/"))
 
 (if (not (file-exists-p d_projets))
     (make-directory d_projets t))
 
-(setq d_organisation "~/mes_docs/emacs/organisation")
+(setq d_organisation  (concat base_emacs "organisation/"))
 
 (if (not (file-exists-p d_organisation))
     (make-directory d_organisation t))
 
 ;; Var perso
-(setq my-org-refile "~/mes_docs/emacs/organisation/refile.org")
-(setq my-org-zikr "~/mes_docs/emacs/journal/") ;;; zikr.org")
+(setq my-org-refile  (concat base_emacs "organisation/refile.org"))
+(setq my-org-zikr  (concat base_emacs "journal/")) ;;; zikr.org")
 
 (global-set-key (kbd "C-c o") nil) ;; Remove the old keybinding
 
@@ -249,7 +252,7 @@
 ;;; To find the right file for journal
 
 ;; Var perso
-(setq org-journal-dir "~/mes_docs/emacs/journal/")
+(setq org-journal-dir  (concat base_emacs "journal/"))
 
 ;; To create a new journal file, I first created a function to create the file’s name:
 (defun get-journal-file-today ()
@@ -272,7 +275,7 @@
 ;;; recherche recursive
 (load-library "find-lisp")
 (setq org-agenda-files
-      (find-lisp-find-files "~/mes_docs/emacs/organisation/" "\.org$"))
+      (find-lisp-find-files  (concat base_emacs "organisation/") "\.org$"))
 
 ;; Number of days before expiration during which a deadline becomes active
 (setq org-deadline-warning-days 14)
