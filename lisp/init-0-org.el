@@ -25,6 +25,9 @@
 (setq org-default-notes-file (concat base_emacs "notes/"))
 
 (setq org-drawers '("PROPERTIES" "CLOCK" "LOGBOOK" "RESULTS" "CONTEXT"))
+
+;; export TODO items in icalendar
+(setq org-icalendar-include-todo t)
 
 ;; Appearance org mode
 
@@ -147,6 +150,11 @@
 
         ("td" "todo with deadline" entry (file+headline my-org-refile "TODOs with deadline")
          "* TODO %? \n DEADLINE: %^t" ;;:clock-resume t
+         :empty-lines 1)
+
+        ;;==========================================;;
+        ("m" "Meeting" entry (file+headline my-org-refile "Meetings")
+         "* %? \n SCHEDULED: %^t" ;;:clock-resume t
          :empty-lines 1)
 
         ;;==========================================;;
@@ -289,6 +297,20 @@
 
 
 
+
+(setq org-agenda-custom-commands
+      '(
+        ;; -------------
+        ("z" "Agenda and all TODOs"
+         ((agenda "")
+          (todo "")
+          )
+         ;; -----------------
+         )))
+
+
+
+
 
 
 (provide 'init-0-org)
