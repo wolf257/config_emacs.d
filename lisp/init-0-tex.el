@@ -64,8 +64,8 @@
                 \\usepackage{unicode-math}
                 \\usepackage[novoc]{arabluatex}
                 \\newfontfamily\\arabicfont[Script=Arabic]{Scheherazade}
-                \\newcommand{\\arbt}[1]{\\Large{\\arb{#1}}} %{\\arbt{...}}
-                \\newcommand{\\arbT}[1]{\\LARGE\\arb{#1}} %\\arbT{...}
+                \\newcommand{\\arbt}[1]{{\\Large{\\arb{#1}}}} %{\\arbt{...}}
+                \\newcommand{\\arbT}[1]{{\\LARGE\\arb{#1}}} %\\arbT{...}
                 % layout
                 \\usepackage{layout}
                 \\usepackage{setspace} %package pour les interlignes
@@ -119,8 +119,8 @@
                 \\usepackage{unicode-math}
                 \\usepackage[novoc]{arabluatex}
                 \\newfontfamily\\arabicfont[Script=Arabic]{Scheherazade}
-                \\newcommand{\\arbt}[1]{\\Large{\\arb{#1}}} %{\\arbt{...}}
-                \\newcommand{\\arbT}[1]{\\LARGE\\arb{#1}} %\\arbT{...}
+                \\newcommand{\\arbt}[1]{{\\Large{\\arb{#1}}}} %{\\arbt{...}}
+                \\newcommand{\\arbT}[1]{{\\LARGE\\arb{#1}}} %\\arbT{...}
                 % layout
                 \\usepackage{layout}
                 \\usepackage{setspace} %package pour les interlignes
