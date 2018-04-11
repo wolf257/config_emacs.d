@@ -13,7 +13,7 @@
 (org-agenda nil "a")
 
 ;;;;;;;;;;;; VERY IMPORTANT
-(setq base_emacs "~/mes_docs/1/emacs/")
+(setq base_emacs "~/mes_docs/0_emacs/")
 
 ;;; just a default location to look for Org files
 (setq org-directory  (concat base_emacs "org_files/"))
