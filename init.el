@@ -50,6 +50,8 @@
 (require 'init-0-org)
 (require 'init-0-python)
 (require 'init-0-tex)
+(require 'init-0-sessions)
+
 ;;----------------------------------------------------------------------------
 ;; Load configs for specific features and modes
 ;;----------------------------------------------------------------------------
@@ -80,7 +82,7 @@
 (require 'init-hippie-expand)
 (require 'init-company)
 (require 'init-windows)
-(require 'init-sessions)
+;; (require 'init-sessions)
 (require 'init-fonts)
 (require 'init-mmm)
 
