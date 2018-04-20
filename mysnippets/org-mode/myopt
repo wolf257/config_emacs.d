@@ -1,0 +1,37 @@
+# -*- mode: snippet -*-
+# name: myopt
+# key: myopt_
+# --
+* ++ options ++                                                                 :prelim:
+** Infos
+   #+AUTHOR: ...
+   #+EMAIL: <myname>@...com
+   #+TITLE: *.*
+
+   #+OPTIONS:   author:t timestamp:t email:nil
+   #+LANGUAGE: en
+
+** Tags
+   #+TAGS:  prelim(p) noexport(n)
+   #+EXCLUDE_TAGS: noexport prelim
+
+** Latex
+*** compiler
+    #+latex_compiler: lualatex
+*** class
+    #+LATEX_CLASS: myarticle
+    #+LATEX_CLASS_OPTIONS: [a4paper,11pt]
+*** margins
+    #+LATEX_HEADER: \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
+*** others
+    #+OPTIONS: tex:t          Do the right thing automatically (MathJax)
+    #+OPTIONS: LaTeX:nil
+
+** Meta-info
+   #+DESCRIPTION: ...
+   #+CREATOR: ...
+
+** Others
+   #+OPTIONS:   H:3 num:t toc:3
+   #+OPTIONS: skip:nil d:nil todo:t pri:nil tags:not-in-toc
+   #+OPTIONS: \n:t ^:nil # to export underscore as underscore
