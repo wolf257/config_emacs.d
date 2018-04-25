@@ -69,6 +69,15 @@
 
 (yas-global-mode 1)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; langtool                          ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq langtool-language-tool-jar "/Applications/LanguageTool-4.1/languagetool-commandline.jar")
+(require-package 'langtool)
+(setq langtool-default-language "fr")
+(setq langtool-mother-tongue "fr")
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; RACCOURCIS DOSSIERS                           ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
