@@ -138,24 +138,24 @@
          :empty-lines 1)
 
         ;;==========================================;;
-        ("t" "Templates for TODOs")
+        ;; ("t" "Templates for TODOs")
 
-        ("tn" "todo" entry (file+headline my-org-refile "TODOs")
+        ("n" "todo" entry (file+headline my-org-refile "TODOs")
          "* TODO %? :NOTE:\n %U" ;;:clock-resume t
          :empty-lines 1)
 
-        ("ts" "todo with schedule" entry (file+headline my-org-refile "TODOs with schedule")
+        ("s" "todo with schedule" entry (file+headline my-org-refile "TODOs with schedule")
          "* TODO %? \n SCHEDULED: %^t" ;;:clock-resume t
          :empty-lines 1)
 
-        ("td" "todo with deadline" entry (file+headline my-org-refile "TODOs with deadline")
+        ("d" "todo with deadline" entry (file+headline my-org-refile "TODOs with deadline")
          "* TODO %? \n DEADLINE: %^t" ;;:clock-resume t
          :empty-lines 1)
 
         ;;==========================================;;
-        ("m" "Meeting" entry (file+headline my-org-refile "Meetings")
-         "* %? \n SCHEDULED: %^t" ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("m" "Meeting" entry (file+headline my-org-refile "Meetings")
+        ;;  "* %? \n SCHEDULED: %^t" ;;:clock-resume t
+        ;;  :empty-lines 1)
 
         ;;==========================================;;
 
@@ -171,20 +171,20 @@
         ;;  "* %? " ;File visited : %f" ;;:clock-resume t
         ;;  :empty-lines 1)
 
-        ("r" "Book review" entry (file+headline my-org-refile "Book reviews")
-         "* Title : %^{title}\n** Author(s): %^{author}\n** Review on: %^t\nAvis : %?"
-         :empty-lines 1)
+        ;; ("r" "Book review" entry (file+headline my-org-refile "Book reviews")
+        ;;  "* Title : %^{title}\n** Author(s): %^{author}\n** Review on: %^t\nAvis : %?"
+        ;;  :empty-lines 1)
 
         ;;==========================================;;
-        ("z" "zikr")
+        ;; ("z" "zikr")
 
-        ("zs" "suivi" entry (file (concat my-org-zikr "zikr_suivi.org"))
-         "* %^{rank} - %^{name} - rep : %^{number} , if_day : %^{number*5} \n** b_date : %^t , e_date : %^t" ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("zs" "suivi" entry (file (concat my-org-zikr "zikr_suivi.org"))
+        ;;  "* %^{rank} - %^{name} - rep : %^{number} , if_day : %^{number*5} \n** b_date : %^t , e_date : %^t" ;;:clock-resume t
+        ;;  :empty-lines 1)
 
-        ("zm" "meditation" entry (file (concat my-org-zikr "zikr_meditation.org"))
-         "* Name : %^{name} \n:CONTEXT: \ndate de saisie : %T \n:END: \n\n%?" ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("zm" "meditation" entry (file (concat my-org-zikr "zikr_meditation.org"))
+        ;;  "* Name : %^{name} \n:CONTEXT: \ndate de saisie : %T \n:END: \n\n%?" ;;:clock-resume t
+        ;;  :empty-lines 1)
 
         ;;==========================================;;
         ;; ("l" "Templates for Documentation NLP (l for Language)")
@@ -197,57 +197,57 @@
         ;;  )
 
         ;;==========================================;;
-        ("p" "Templates for Projects ")
+        ;; ("p" "Templates for Projects ")
 
-        ("ps" "... School")
+        ;; ("ps" "... School")
 
-        ("psr" "... Recherches à faire" entry (file+headline (concat d_projets "school.org") "Recherches")
-         "* TODO %? " ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("psr" "... Recherches à faire" entry (file+headline (concat d_projets "school.org") "Recherches")
+        ;;  "* TODO %? " ;;:clock-resume t
+        ;;  :empty-lines 1)
 
-        ("psi" "... Idées" entry (file+headline (concat d_projets "school.org") "Idées")
-         "* %? " ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("psi" "... Idées" entry (file+headline (concat d_projets "school.org") "Idées")
+        ;;  "* %? " ;;:clock-resume t
+        ;;  :empty-lines 1)
 
-        ("psn" "... Notes vracs" entry (file+headline (concat d_projets "school.org") "Notes vracs")
-         "* %? " ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("psn" "... Notes vracs" entry (file+headline (concat d_projets "school.org") "Notes vracs")
+        ;;  "* %? " ;;:clock-resume t
+        ;;  :empty-lines 1)
 
-        ("psr" "... Reflexions in *_reflexions" entry (file (concat d_projets "school_reflexions.org"))
-         "* %? " ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("psr" "... Reflexions in *_reflexions" entry (file (concat d_projets "school_reflexions.org"))
+        ;;  "* %? " ;;:clock-resume t
+        ;;  :empty-lines 1)
 
 
-        ;;;;;;;;;
-        ("pe" "... Maison Edition")
+        ;; ;;;;;;;;;
+        ;; ("pe" "... Maison Edition")
 
-        ("per" "... Recherches à faire" entry (file+headline (concat d_projets "editions.org") "Recherches")
-         "* TODO %? " ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("per" "... Recherches à faire" entry (file+headline (concat d_projets "editions.org") "Recherches")
+        ;;  "* TODO %? " ;;:clock-resume t
+        ;;  :empty-lines 1)
 
-        ("pei" "... Idées" entry (file+headline (concat d_projets "editions.org") "Idées")
-         "* %? " ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("pei" "... Idées" entry (file+headline (concat d_projets "editions.org") "Idées")
+        ;;  "* %? " ;;:clock-resume t
+        ;;  :empty-lines 1)
 
-        ("pen" "... Notes vracs" entry (file+headline (concat d_projets "editions.org") "Notes vracs")
-         "* %? " ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("pen" "... Notes vracs" entry (file+headline (concat d_projets "editions.org") "Notes vracs")
+        ;;  "* %? " ;;:clock-resume t
+        ;;  :empty-lines 1)
 
-        ;;;;;;;;
+        ;; ;;;;;;;;
 
-        ("pi" "... Imprimerie")
+        ;; ("pi" "... Imprimerie")
 
-        ("pir" "... Recherches à faire" entry (file+headline (concat d_projets "imprimerie.org") "Recherches")
-         "* TODO %? " ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("pir" "... Recherches à faire" entry (file+headline (concat d_projets "imprimerie.org") "Recherches")
+        ;;  "* TODO %? " ;;:clock-resume t
+        ;;  :empty-lines 1)
 
-        ("pii" "... Idées" entry (file+headline (concat d_projets "imprimerie.org") "Idées")
-         "* %? " ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("pii" "... Idées" entry (file+headline (concat d_projets "imprimerie.org") "Idées")
+        ;;  "* %? " ;;:clock-resume t
+        ;;  :empty-lines 1)
 
-        ("pin" "... Notes vracs" entry (file+headline (concat d_projets "imprimerie.org") "Notes vracs")
-         "* %? " ;;:clock-resume t
-         :empty-lines 1)
+        ;; ("pin" "... Notes vracs" entry (file+headline (concat d_projets "imprimerie.org") "Notes vracs")
+        ;;  "* %? " ;;:clock-resume t
+        ;;  :empty-lines 1)
 
         ;;==========================================;;
 

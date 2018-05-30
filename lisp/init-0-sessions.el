@@ -2,7 +2,7 @@
 
 ;; save a list of open files in ~/.emacs.d/.emacs.desktop
 (setq desktop-path (list user-emacs-directory)
-      desktop-auto-save-timeout 20) ;; (seconds)
+      desktop-auto-save-timeout 10) ;; (seconds)
 
 ;; Desktop will load, at startup, the buffers you were editing when you last quit Emacs
 (desktop-save-mode 1)
