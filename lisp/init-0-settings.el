@@ -136,8 +136,7 @@
 (define-key my/refile-map "," 'my/org-refile-to-previous-in-file)
 
 (my/defshortcut ?c "~/Dropbox/dropbox_cs")
-(my/defshortcut ?m "~/mes_docs/0_mes_Ecrits")
-(my/defshortcut ?e "~/mes_docs/0_emacs")
+(my/defshortcut ?e "~/mes_docs/emacs")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; create folder if missing
