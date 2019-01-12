@@ -210,6 +210,9 @@
 ;; Keybindings                                   ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; (keyboard-translate ?\C-d ?\C-x)
+;; (keyboard-translate ?\C-x ?\C-d)
+
 ;;(global-set-key (kbd "C-z") nil) ; was sanityinc/maybe-suspend-frameqq
 (global-set-key (kbd "C-z") 'undo) ; 【Ctrl+z】
 
